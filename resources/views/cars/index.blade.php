@@ -4,6 +4,7 @@
 <table class="table">
     <div>
         <h2 class="text-center mt-3 mb-3">List of Cars</h2>
+        <a href="{{ route('cars.create') }}" class="btn btn-success mb-3">Add New Car</a>
     </div>
     <thead>
     <tr>
