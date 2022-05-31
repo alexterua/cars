@@ -8,29 +8,24 @@
     <thead>
     <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Name of Car</th>
+        <th scope="col">Description</th>
+        <th scope="col">Engine</th>
+        <th scope="col">Fuel</th>
+        <th scope="col">Price</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-    </tr>
-    <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-    </tr>
-    <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-    </tr>
+    @foreach($cars as $car)
+        <tr>
+            <th scope="row">{{ $loop->iteration }}</th>
+            <td>{{ $car->title }}</td>
+            <td>{{ $car->desc }}</td>
+            <td>{{ $car->engine }}</td>
+            <td>{{ $car->fuel }}L</td>
+            <td>{{ $car->price }}$</td>
+        </tr>
+    @endforeach
     </tbody>
 </table>
 @endsection
