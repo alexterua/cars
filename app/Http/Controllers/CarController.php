@@ -20,6 +20,16 @@ class CarController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $data = $request->validate([
+            'title' => 'string|min:3|max:255|required',
+            'desc' => 'string|required',
+            'engine' => 'string|min:3|max:255|required',
+            'fuel' => 'numeric|required',
+            'price' => 'numeric|required',
+        ]);
+
+        Car::create($data);
+
+        return redirect()->route('cars.index');
     }
 }
