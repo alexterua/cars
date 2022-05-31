@@ -52,6 +52,23 @@
                 </div>
                 @enderror
             </div>
+            <div class="mb-3">
+                <div class="form-group">
+                    <label>Old Owner (Бывший Владелец)</label>
+                    <select name="old_owner_id" class="form-control">
+                        @foreach($oldOwners as $oldOwner)
+                            <option value="{{ $oldOwner->id }}"
+                                {{ old('old_owner_id') == $oldOwner->id ? 'selected' : '' }}
+                            >{{ $oldOwner->last_name }}</option>
+                        @endforeach
+                    </select>
+                    @error('old_owner_id')
+                    <div class="alert alert-danger" role="alert">
+                        {{ $message }}
+                    </div>
+                    @enderror
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <a href="{{ route('cars.index') }}" class="btn btn-dark">Back</a>
         </form>

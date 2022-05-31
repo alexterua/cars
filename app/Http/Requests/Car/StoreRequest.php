@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'engine' => 'string|min:3|max:255|required',
             'fuel' => 'numeric|required',
             'price' => 'numeric|required',
+            'old_owner_id' => 'numeric|required',
         ];
     }
 }

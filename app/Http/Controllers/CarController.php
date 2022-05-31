@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Car\StoreRequest;
 use App\Models\Car;
+use App\Models\OldOwner;
 
 class CarController extends Controller
 {
@@ -15,14 +16,15 @@ class CarController extends Controller
 
     public function create()
     {
-        return view('cars.create');
+        $oldOwners = OldOwner::all();
+        return view('cars.create', compact('oldOwners'));
     }
 
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
 
-        Car::create($data);
+        Car::firstOrCreate($data);
 
         return redirect()->route('cars.index');
     }
