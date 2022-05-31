@@ -17,4 +17,9 @@ class CarController extends Controller
     {
         return view('cars.create');
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 }
